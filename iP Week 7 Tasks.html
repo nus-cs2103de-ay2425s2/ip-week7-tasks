@@ -1,0 +1,625 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857143; overflow-x: hidden; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; background-position: inherit; background-repeat: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; word-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font-family: inherit; font-size: inherit; font-style: inherit; font-variant-caps: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right-width: 0px; background-color: inherit; }
+.CodeMirror-linenumber { -webkit-user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; position: relative !important; background-position: inherit; background-repeat: inherit; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; background-position: 0px 0px; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background-color: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background-color: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; }
+a.md-print-anchor { white-space: pre !important; border: none !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; text-shadow: initial !important; background-position: 0px 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom-width: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background-color: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; background-position: inherit; background-repeat: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.428571429rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left-width: 28px; border-left-style: solid; border-left-color: transparent; border-right-width: 28px; border-right-style: solid; border-right-color: transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right-width: 8px; border-right-style: solid; border-right-color: transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+.md-alert.md-alert-note { border-left-color: rgb(9, 105, 218); }
+.md-alert.md-alert-important { border-left-color: rgb(130, 80, 223); }
+.md-alert.md-alert-warning { border-left-color: rgb(154, 103, 0); }
+.md-alert.md-alert-tip { border-left-color: rgb(31, 136, 61); }
+.md-alert.md-alert-caution { border-left-color: rgb(207, 34, 46); }
+.md-alert { padding: 0px 1em; margin-bottom: 16px; color: inherit; border-left-width: 0.25em; border-left-style: solid; border-left-color: rgb(0, 0, 0); }
+.md-alert-text-note { color: rgb(9, 105, 218); }
+.md-alert-text-important { color: rgb(130, 80, 223); }
+.md-alert-text-warning { color: rgb(154, 103, 0); }
+.md-alert-text-tip { color: rgb(31, 136, 61); }
+.md-alert-text-caution { color: rgb(207, 34, 46); }
+.md-alert-text { font-size: 0.9rem; font-weight: 700; }
+.md-alert-text svg { fill: currentcolor; position: relative; top: 0.125em; margin-right: 1ch; overflow: visible; }
+.md-alert-text-container::after { content: attr(data-text); text-transform: capitalize; pointer-events: none; margin-right: 1ch; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.mac-os #write{
+    caret-color: AccentColor;
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+ @media print { @page {margin: 0 0 0 0;} body.typora-export {padding-left: 0; padding-right: 0;} #write {padding:0;}}
+</style><title>iP Week 7 Tasks</title>
+</head>
+<body class='typora-export'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='ip-week-7-tasks'><span>iP Week 7 Tasks</span></h1><p><span>This document is organized into two main sections, namely, </span><strong><span>Important Notices</span></strong><span> as well as the tasks for you to do in Week 6 (please refer to </span><strong><span>Add Increments while Committing Frequently</span></strong><span>).</span></p><p>&nbsp;</p><h2 id='important-notices'><span>Important Notices</span></h2><h3 id='⚠️-starting-time-and-deadline-week-7-ip-tasks'><span>⚠️ Starting Time and Deadline (Week 7 iP Tasks)</span></h3><ul><li><p><span>Start: 0000, Monday, Recess Week</span></p></li><li><p><span>Due by: 2359, Friday, Week 7</span></p></li></ul><p>&nbsp;</p><p><span>This is the final week of iP (Individual Project) tasks. We are impressed with everyone&#39;s progress and achievements! Please bring the same energy, passion, and dedication to your tP (Team Project) as well!</span></p><p>&nbsp;</p><p><span>Please follow the instructions carefully. Project work should be spaced out and done over a longer period to help you gain fluency and better simulate real projects. Clumping all iP work into a short burst will not earn full marks. Any deviations can cause our grading scripts to miss your work (and result in you not getting credit for the work).</span></p><p>&nbsp;</p><p><span>The individual project (iP) undergoes changes after each semester. As such, teething issues are a possibility. If you encounter any problem while doing the iP, please post in the </span><a href='https://canvas.nus.edu.sg/courses/69912/discussion_topics/288871'><em><span>forum</span></em><span> 🔗</span></a><span> so that we can take necessary actions.</span></p><p>&nbsp;</p><div class="md-alert md-alert-important important"><p><span class='md-alert-text md-alert-text-important'><svg viewBox="0 0 16 16" version="1.1" width="1em" height="1em" aria-hidden="true"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Important</span><br></p><p><span>⚠️ To qualify for full marks, your last 5 iP commits need to comply with our convention for Git commit message subject, please refer </span><a href='https://se-education.org/guides/conventions/git.html'><em><span>here</span></em></a><span>. If you forgot to do this, add more commits with some small tweaks to the code until you satisfy this requirement (Reason: doing so will help you remember this convention better in the tP, hopefully). Note that writing a commit message body is optional, but if you do write one, follow at least basic conventions for the commit message body. </span></p></div><div class="md-alert md-alert-important important"><p><span class='md-alert-text md-alert-text-important'><svg viewBox="0 0 16 16" version="1.1" width="1em" height="1em" aria-hidden="true"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Important</span><br></p><p><span>⚠️ Please also remeber to do follow the </span><em><span>basic</span></em><span> and </span><em><span>intermediate</span></em><span> rules in the </span><a href='https://se-education.org/guides/conventions/java/intermediate.html'><span>SE-EDU Java coding standard</span></a><span>. It is optional to follow the </span><a href='https://se-education.org/guides/conventions/java/index.html'><span>advanced rules</span></a><span>.</span></p><p><span>Relevant SE-EDU guide: </span><a href='https://se-education.org/guides/tutorials/intellijCodeStyle.html'><span>Intellij IDEA: Configuring the code style</span></a></p></div><div class="md-alert md-alert-note note"><p><span class='md-alert-text md-alert-text-note'><svg viewBox="0 0 16 16" version="1.1" width="1em" height="1em" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</span><br></p><p><span>Note that when something is not covered by the given standards/conventions, you are free to choose which style you want to follow for that, but try to be consistent with the existing code (if any), and ensure everyone in the team follows the same (for tP later on).</span></p></div><p>&nbsp;</p><h2 id='add-increments-while-committing-frequently'><span>Add Increments while Committing Frequently</span></h2><div class="md-alert md-alert-important important"><p><span class='md-alert-text md-alert-text-important'><svg viewBox="0 0 16 16" version="1.1" width="1em" height="1em" aria-hidden="true"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Important</span><br></p><p><em><u><strong><span>(MOST IMPORTANT!) Required increments for Week 5, in order:</span></strong></u></em></p></div><ol start='' ><li><p><span>Do any leftover iP tasks from the previous weeks</span></p></li><li><p><span>Add Optional Increments: </span><code>A-BetterGui</code><span>, </span><code>A-Personality</code><span>, </span><code>A-MoreErrorHandling</code><span>, </span><code>A-MoreTesting</code><span>, </span><code>A-AiAssisted</code></p></li><li><p><span>Finalize the features</span></p></li><li><p><span>Set up a product website</span></p></li><li><p><span>Submit the final version</span></p></li><li><p><span>[Optional] Get more out of the iP</span></p></li><li><p><span>Evaluate two peer iPs</span></p></li></ol><p>&nbsp;</p><h3 id='1-do-any-leftover-ip-tasks-from-the-previous-weeks'><span>1. Do any leftover iP tasks from the previous weeks</span></h3><p><span>Remember to do any leftover increments from the past weeks before starting on the current week&#39;s increments. This guideline applies to future weeks too.</span></p><p>&nbsp;</p><h3 id='2-add-optional-increments-a-bettergui-a-personality-a-moreerrorhandling-a-moretesting-a-aiassisted'><span>2. Add Optional Increments: </span><code>A-BetterGui</code><span>, </span><code>A-Personality</code><span>, </span><code>A-MoreErrorHandling</code><span>, </span><code>A-MoreTesting</code><span>, </span><code>A-AiAssisted</code></h3><p><span>As before, we recommend (but not require) that each increment is done as a separate branch and merged to the </span><code>master</code><span> branch when ready fully done.</span></p><blockquote><p><strong><span>(Optional) A-BetterGui: Better GUI</span></strong></p></blockquote><p><span>Improve the GUI to make it more </span><em><span>polished</span></em><span>. Some examples:</span></p><ul><li><p><span>Tweak the GUI to match the asymmetric nature of the conversation: As the conversation is between the user and the app (not between two humans), it is asymmetric in nature. Accordingly, it makes sense not to display both sides of the conversion in the same visual format.</span></p></li><li><p><span>Highlight errors e.g., when the user types a wrong command, the error should be shown in a different format to catch ther user&#39;s attention.</span></p></li><li><p><span>Tweak padding, fonts, colors, alignments to make the GUI more pleasing to look at.</span>
+<span>Given the app is likely to take only a small portion of the screen, and the bot replies can contain lot of text, try to optimize for space (e.g., avoid wasting display space that simply shows the background graphics).</span></p></li><li><p><span>Allow resizing of the Window, and ensure the content resize appropriately as the Window changes size.</span></p></li><li><p><span>Profile pictures: If your GUI shows profile pictures, you can tweak the way the picture is shown (e.g., crop as a circle or a square with rounded corners). In fact, an easy tweak is to use a picture with a transparent background so that it blends nicely with the background.</span>
+<span>Given that the participants of the conversion are fixed (i.e., you and the chatbot), do you even need big profile pictures?</span></p></li><li><p><span>Focus more on tweaks that actually </span><em><span>improves</span></em><span> the user experience (UX). Some changes (e.g., profile pictures, background graphics) can be eye catching but can even degrade the UX if not done right (e.g., it can make the text harder to read)</span></p></li></ul><p>&nbsp;</p><blockquote><p><strong><span>(Optional) A-Personality: A unique personality</span></strong></p></blockquote><p><span>Choose a unique personality for Duke, and tweak the following aspects to go with that personality:</span></p><ul><li><p><span>Name</span></p></li><li><p><span>Phrases used by Duke (e.g., when responding to a command)</span></p></li><li><p><span>GUI (colors, icons, font, etc.)</span></p></li></ul><p>&nbsp;</p><blockquote><p><span>(Optional) </span><strong><span>A-Personality: A unique personality</span></strong></p></blockquote><p><span>Choose a unique personality for Duke, and tweak the following aspects to go with that personality:</span></p><ul><li><p><span>Name</span></p></li><li><p><span>Phrases used by Duke (e.g., when responding to a command)</span></p></li><li><p><span>GUI (colors, icons, font, etc.)</span></p></li></ul><p>&nbsp;</p><blockquote><p><strong><span>(Optional) A-MoreErrorHandling: More error handling</span></strong></p></blockquote><p><span>Improve the code to handle all errors you anticipate the product will encounter during usage.</span></p><p><span>Some examples of errors:</span></p><ul><li><p><span>command format errors: multiple spaces where only one is expected, trailing/leading spaces in the command, an essential parameter missing, a parameter is specified multiple times, special characters used where they are not expected, ...</span></p></li><li><p><span>environment issues: an expected file is missing, access to a file is denied, a file content is not as expected, ...</span></p></li><li><p><span>data is not as expected: start date/time is later (or same as) than end/time, a value that should be unique is duplicated (e.g., two tasks with the same exact details), non-existent dates (e.g., Feb 30)</span></p></li></ul><p>&nbsp;</p><blockquote><p><strong><span>(Optional) A-MoreTesting: More testing</span></strong></p></blockquote><p><span>Write more JUnit tests, to test nearly all code that can be tested automatically.</span></p><p><span>You may omit code that are hard to test automatically e.g., GUI functionality (test those manually instead).</span></p><p><span>This can include more manual testing as well e.g., testing on different OSes, different screen resolution, different OS language settings (English vs Chinese)</span></p><p>&nbsp;</p><p>&nbsp;</p><div class="md-alert md-alert-note note"><p><span class='md-alert-text md-alert-text-note'><svg viewBox="0 0 16 16" version="1.1" width="1em" height="1em" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</span><br></p><p><span>iP.AI:</span></p><p><strong><span>Goal</span></strong><span>: In the iP.AI approach, your goal is to minimize hand-coding the iP, by getting generative AI tools (such as Co-Pilot) to write the code for you instead. The learning goal is to explore how to increase your coding productivity using AI tools.</span></p><p><strong><span>Requirements:</span></strong></p><ol><li><p><span>You should follow the normal iP requirements/deadlines, except that you will try to replace handcoding with AI-assisted code generation, where possible. It is still fine to do some of the coding work manually.</span></p></li><li><p><span>You may use any free or commercial AI tools, provided you declare which tool you used (how to declare? see next point).</span></p></li><li><p><span>Add a file named </span><code>AI.md</code><span> at the root of project folder (same location where </span><code>CONTRIBUTORS.md</code><span> lives). Commit the file. Keep it updated with a record of your use of AI tools (e.g., which tool you used for which increment), and interesting observations (e.g., what worked? what didn&#39;t? overall, how much time did it save?). You can update this file periodically (e.g., once a week). The content format can be plaintext or Markdown. It need not be very detailed (e.g., even a 0.5 page is enough).</span></p></li></ol><p><strong><span>Caveat:</span></strong><span> This alternative does not earn you extra credit, but it gives you an opportunity to learn more about AI tools related to SE, with the same (or even less) effort.</span>
+<span>This alternative is only suitable for those who are already good at hand-coding. Reason: At the current state of the art of AI tools, only those who are already good at hand-coding can use those tools to increase productivity. So, you must become good at hand-coding before you venture into using AI tools for coding.</span></p><p><em><span>If you are already following the AI route an AI-assisted approach to the iP), you may add the </span><code>A-AiAssisted</code><span> tag to the latest commit of your repo without needing any further work.</span></em></p><p><em><span>Otherwise (i.e., if you haven&#39;t been using AI tools in the iP until now), the increment below is an opportunity for you to use the iP to explore how AI tools can help with programming tasks. If you take it up, in places where you use AI-assisted code, give some details (e.g., which tool you used how it helped) as a code comment. Alternatively, you can add an </span><code>AI.md</code><span> file, similar to the AI route</span></em></p></div><p>&nbsp;</p><blockquote><p><span>(Optional) </span><strong><span>A-AiAssisted: Enhance using AI tools</span></strong></p></blockquote><p><span>Use AI tools (e.g., GitHub Copilot, ChatGPT) to enhance your chatbot code. For example, you can get AI tools to help you,</span></p><ul><li><p><span>improve the quality of the current code.</span></p></li><li><p><span>tweak an existing feature to make it more useful to the user.</span></p></li><li><p><span>add or improve documentation, tests.</span></p></li></ul><p>&nbsp;</p><h3 id='3-finalize-the-features'><span>3. Finalize the features</span></h3><ol start='' ><li><p><span>Ensure the product can handle common errors gracefully, such as the user making an unintentional error in the command, or the data file not being found in the expected location.</span></p></li><li><p><span>Ensure that the name of the product name is not </span><code>Duke</code><span>(as required by Level-0) and the name is shown correctly everywhere it appears in the UI e.g., title bar of the GUI.</span></p><ul><li><p><span>Reminder: You may give the product any name, but do not rename the repo.</span></p></li><li><p><span>Reminder: You can give the chatbot any personality (there is no need to follow the exact command/response formats given)</span></p></li></ul></li><li><p><span> </span><strong><span>Remember to give credit for any code you reused</span></strong><span> or solutions you adopted from others. Reuse without giving credit is plagiarism and </span><strong><span>will be reported to the university for disciplinary action</span></strong><span>.</span></p></li></ol><p>&nbsp;</p><h3 id='4-set-up-a-product-website'><span>4. Set up a product website</span></h3><ul><li><p><span>Add a representative screenshot of the product to the </span><code>docs</code><span> folder.</span></p><ul><li><p><span>The file should be in the </span><code>docs</code><span> folder and named </span><code>Ui.png</code><span> exactly (even if the file format is not </span><code>png</code><span>, name it </span><code>png</code><span>)</span></p></li><li><p><code>Ui.png</code><span> should show the </span><em><span>full</span></em><span> GUI window (i.e., not just the part containing the chat messages).</span></p></li><li><p><code>Ui.png</code><span> should be a </span><em><span>single</span></em><span> GUI window (i.e., do not stitch multiple screenshots together).</span></p></li><li><p><span>Ideally, the product name should be visible in the screenshot e.g., in the title bar of the Window</span></p></li><li><p><span>Also note the tips given in the panel below:</span></p></li></ul></li></ul><div class="md-alert md-alert-note note"><p><span class='md-alert-text md-alert-text-note'><svg viewBox="0 0 16 16" version="1.1" width="1em" height="1em" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</span><br></p><p><strong><span>Some common sense tips for a good product screenshot</span></strong></p><p><code>Ui.png</code><span> should showcase your product in its full glory.</span></p><ul><li><p><span>Populate the product with </span><em><span>realistic</span></em><span> data</span></p><p><span> </span></p><p><span>before taking the screenshot. For example,</span></p><ul><li><p><span>if the UI is supposed to show profile photos, use real profile photos instead of dummy placeholders.</span></p></li><li><p><span>if the UI shows text, don&#39;t use trivial/garbage values such as </span><code>test 123</code><span> or values a typical user is unlikely to use.</span></p></li></ul></li><li><p><strong><span>Use data that make the product </span><span>*</span><span>look good</span><span>*</span></strong><span> e.g., if the product doesn&#39;t have nice line wrapping for long inputs/outputs, don&#39;t use such inputs/outputs for the screenshot.</span></p></li><li><p><strong><span>Avoid too many blank areas</span></strong><span>. If you show the product in a well-populated state there shouldn&#39;t be largely blank areas that could be filled up instead.</span></p></li><li><p><span>Choose a state that showcases the main features of the product i.e., the login screen is not usually a good choice.</span></p></li><li><p><strong><span>Take a </span><span>*</span><span>clean</span><span>*</span><span> screenshot with a decent resolution.</span></strong><span> Some screenshot tools can capture a specified window only. If your tool cannot do that, make sure you </span><strong><span>crop away the extraneous parts</span></strong><span> captured by the screenshot.</span></p></li><li><p><strong><span>Avoid annotations</span></strong><span> (arrows, callouts, explanatory text etc.); it should look like the product is in use for real.</span></p></li></ul><p><span>Not Good:</span></p><p><img src="images/Screen Shot 2025-02-20 at 4.46.51 PM.png" referrerpolicy="no-referrer" alt="Screen Shot 2025-02-20 at 4.46.51 PM"></p><p><img src="images/Screen Shot 2025-02-20 at 4.47.02 PM.png" referrerpolicy="no-referrer" alt="Screen Shot 2025-02-20 at 4.47.02 PM"></p><p><img src="images/Screen Shot 2025-02-20 at 4.47.10 PM.png" referrerpolicy="no-referrer" alt="Screen Shot 2025-02-20 at 4.47.10 PM"></p><p><span>Good:</span><img src="images/Screen Shot 2025-02-20 at 4.47.28 PM.png" referrerpolicy="no-referrer" alt="Screen Shot 2025-02-20 at 4.47.28 PM"></p><p><img src="images/Screen Shot 2025-02-20 at 4.47.18 PM.png" referrerpolicy="no-referrer" alt="Screen Shot 2025-02-20 at 4.47.18 PM"></p></div><ul><li><p><strong><span>Add a brief User Guide (UG)</span></strong></p></li></ul><blockquote><p><code>A-UserGuide</code><span>: User Guide</span></p></blockquote><p><span>Please refer to the links labeled </span><a href='https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax'><span>this guide</span></a><span> and </span><a href='https://se-education.org/addressbook-level3/UserGuide.html#features'><span>this user guide</span></a><span> that are shown in the image below.</span></p><p><img src="images/Screen Shot 2025-02-20 at 4.49.31 PM.png" referrerpolicy="no-referrer" alt="Screen Shot 2025-02-20 at 4.49.31 PM"></p><p>&nbsp;</p><h3 id='5-submit-the-final-version-2359-sunday-8-feb'><span>5. Submit the final version (2359, Sunday, 8 Feb)</span></h3><ol><li><p><span>Create a new jar file</span></p><ul><li><p><span>Create the JAR file </span><a href='https://se-education.org/guides/tutorials/gradle.html'><span>using Gradle</span></a><span> -- this needs to be a </span><a href='https://se-education.org/guides/tutorials/jar.html#fat-jar-files:~:text=given here.-,Fat JAR files,-A normal JAR'><span>fat JAR file</span></a><span> (hence, it&#39;s best created </span><a href='https://se-education.org/guides/tutorials/jar.html#:~:text=Creating-,JAR files,With Gradle,-With IntelliJ IDEA'><span>using Gradle&#39;s shadow plugin</span></a><span>).</span></p></li><li><p><span>The JAR file should be cross-platform and should work in a computer that has Java 21 (but no other Java version). To avoid version compatibility issues, we strongly recommend the following approach:</span></p><ol><li><p><span>Open a terminal window, and navigate to the root of your project folder.</span></p></li><li><p><span>Run the </span><code>java -version</code><span> command to confirm the terminal is using Java 21.</span></p></li><li><p><span>Run the </span><code>./gradlew clean shadowJar</code><span> command to create the JAR file.</span></p></li></ol></li></ul></li><li><p><span>Do the following </span><a href='https://en.wikipedia.org/wiki/Smoke_testing_(software)'><em><span>smoke tests</span></em></a><span> to ensure the jar file works (reason: a similar flow will be used when grading your iP)</span></p><ol><li><p><span>Copy the jar file to an empty folder and test it from there. This should surface issues with hard-coded file paths.</span>
+<span>When running the jar file for smoke testing, instead of double-clicking the jar file, do the following: open a terminal -&gt; navigate to the jar location -&gt; run the </span><code>java -jar &quot;JAR_FILE_NAME&quot;</code><span> command.</span></p></li><li><p><span>Pass the jar file to team members and ask them to do a test drive. Assuming some of your team members&#39; OS differ from yours, this should verify if the app is cross-platform.</span>
+<span> If you don&#39;t have ready access to a specific OS, post a link to your JAR in the forum and ask others to help with the smoke testing -- some of them will even appreciate the opportunity to help a classmate.</span></p></li><li><p><span>Create a new release on GitHub (e.g., v0.2) and upload the JAR file. Recommended to refrain from uploading multiple JAR files as this can cause extra work for the evaluators.</span></p></li></ol><p>&nbsp;</p><blockquote><p><strong><code>A-Release</code><span>: Release</span></strong></p></blockquote><p><span>Release the product to be used by potential users. e.g., you can make it available on GitHub.</span></p></li></ol><p>&nbsp;</p><h3 id='6-optional-get-more-out-of-the-ip'><span>6. (Optional) Get more out of the iP</span></h3><p><strong><span>If you wish to cite the iP in your resume</span></strong><span>, you can do more to make it look more impressive to a potential employer. These improvements are not considered for grading and can be done after the semester is over. Some ideas:</span></p><ul><li><p><strong><span>Improve the GUI</span></strong><span>: Make the UI look nicer, unique, and memorable. You can get inspiration from what others have done (but remember to give credit if you reuse any code from them).</span></p></li><li><p><strong><span>Add a demo</span></strong><span> video or an animated gif to your user guide to show how the app works.</span></p></li><li><p><strong><span>Improve code quality</span></strong><span>: iP is the right size to cite as an example of your code quality. </span></p></li><li><p><strong><span>Add more features.</span></strong></p></li></ul><p>&nbsp;</p><div class="md-alert md-alert-tip tip"><p><span class='md-alert-text md-alert-text-tip'><svg viewBox="0 0 16 16" version="1.1" width="1em" height="1em" aria-hidden="true"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</span><br></p><p><span>On a somewhat related note, you can also </span><strong><span>create similar product websites for your other projects</span></strong><span> (projects from other courses, pet projects).</span></p></div><p>&nbsp;</p><h3 id='7-evaluate-two-peer-ips-start-in-week-10'><span>7. Evaluate two peer iPs (Start in Week 10)</span></h3><ol><li><p><strong><span>Wait for the email notifying you which iPs are allocated for you to evaluate</span></strong><span>. When the email is sent out, it will also be announced via course announcements.</span></p></li><li><p><strong><span>Download the </span><span>*</span><span>latest</span><span>*</span><span> JAR file</span></strong><span> of the first iP by following the link provided.</span></p></li></ol><ol><li><p><strong><span>Locate the User Guide</span></strong><span> of the app by following the link provided in that email.</span></p></li><li><p><strong><span>Open the Canvas survey</span></strong><span> (the one named </span><code>iP Peer Evaluation 1</code><span>) that you will be using to submit your evaluation and take note of the things you need to evaluate.</span></p></li><li><p><span>Run the jar file in the following manner:</span></p><ul><li><p><span>Put the jar file in an empty folder</span>
+<span>Reason: prevent data files created by other jar files you tested earlier from interfering with the current jar file.</span></p></li><li><p><span>Open a terminal, and navigate to the folder you put the JAR file in (e.g., </span><code>cd smoke-test/ip1</code><span>)</span>
+<span>Reason: data files will be created relative to the folder the terminal is currently in.</span></p></li><li><p><span> Run the </span><code>java -version</code><span> command to confirm you are using Java 21.</span></p></li><li><p><span>Run the jar file using the </span><code>java -jar &quot;{file_name}&quot;</code><span> command (rather than double-clicking) in the same terminal.</span></p></li></ul></li><li><p><strong><span>Do a light testing of the app</span></strong><span> (not more than 10 minutes) to ensure the claimed features actually exist and there are no obvious bugs.</span></p></li><li><p><strong><span>Do a quick examination of the code</span></strong><span> (~ 5 minutes) by following the provided link.</span></p></li><li><p><strong><span>Submit your evaluation</span></strong><span> using the survey.</span></p></li><li><p><strong><span>Repeat the above steps for the 2nd iP</span></strong><span> allocated to you (use the survey </span><code>iP Peer Evaluation 2</code><span>).</span>
+<span>If </span><em><span>both</span></em><span> iPs crash or fail severely in a similar fashion, the problem may be on your side. Please contact the teaching team to ask how to proceed.</span></p></li><li><p><strong><span>Take note of the effort required for a </span><span>*</span><span>typical</span><span>*</span><span> iP</span></strong><span>: After seeing two more iPs, you should now be in a better position to estimate how much you need to do for the tP (reason: the expected implementation effort for the tP is estimated with reference to the implementation effort required for half of a </span><em><span>typical</span></em><span> iP).</span></p></li></ol></div></div>
+</body>
+</html>
